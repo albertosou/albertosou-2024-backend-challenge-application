@@ -18,7 +18,7 @@ public class JwtValidatorController : ControllerBase
         _jwtValidationService = jwtValidationService;        
     }
     [HttpGet]
-    public ActionResult<bool> PostValidateJwt(string jwt)
+    public IActionResult GetValidateJwt(string jwt)
     {
         try
         {
