@@ -6,7 +6,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 //TODO: Implementar HealthChecks - Testar disponibilidades externas
-builder.Services.AddHealthChecks(); 
+builder.Services.AddHealthChecks();
 
 var app = builder.Build();
 
@@ -26,3 +26,5 @@ app.MapControllers();
 app.MapHealthChecks("/health");
 
 app.Run();
+
+public partial class Program { }
