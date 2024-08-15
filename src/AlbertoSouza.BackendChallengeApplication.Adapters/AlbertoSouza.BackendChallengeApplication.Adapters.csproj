@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AlbertoSouza.BackendChallengeApplication.Domain\AlbertoSouza.BackendChallengeApplication.Domain.csproj" />
+    <ProjectReference Include="..\AlbertoSouza.BackendChallengeApplication.Ports\AlbertoSouza.BackendChallengeApplication.Ports.csproj" />
+  </ItemGroup>
+
 </Project>
