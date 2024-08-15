@@ -27,14 +27,14 @@ namespace AlbertoSouza.BackendChallengeApplication.Domain.Test
         [InlineData(8, false)]
         public void GiveOneJwtData_WhenValidateJwt_ThenShouldReturnIsValidAndMessage(int caseId, bool expectedIsValid)
         {
-            // Arrange
+            // Arrange / Give
             var jtw = _mappedCases[caseId].jwtItem;
             var expectedMessage = _mappedCases[caseId].expectedMessage;
 
-            // Act
+            // Act / When
             var result = JwtValidator.ValidateJwt(jtw);
 
-            // Assert
+            // Assert / Then
             Assert.Equal(expectedIsValid, result.IsValid);
             Assert.Equal(expectedMessage, result.ValidationMessage);
         }

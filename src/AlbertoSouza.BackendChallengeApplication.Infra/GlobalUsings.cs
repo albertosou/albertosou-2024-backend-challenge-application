@@ -1,0 +1,2 @@
+﻿global using AlbertoSouza.BackendChallengeApplication.Ports;
+global using AlbertoSouza.BackendChallengeApplication.Adapters;
