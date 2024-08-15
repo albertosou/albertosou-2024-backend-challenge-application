@@ -2,7 +2,7 @@ namespace AlbertoSouza.BackendChallengeApplication.Domain.Test
 {
     public class JwtValidatorTest
     {
-        private readonly Dictionary<int, (string expectedMessage, string jwtItem)> _mapCases = new()
+        private readonly Dictionary<int, (string expectedMessage, string jwtItem)> _mappedCases = new()
         {
             { 0, ("Token JWT válido", "eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJTZWVkIjoiNzg0MSIsIk5hbWUiOiJUb25pbmhvIEFyYXVqbyJ9.QY05sIjtrcJnP533kQNk8QXcaleJ1Q01jWY_ZzIZuAg") },
             { 1, ("Token JWT inválido", "XPTO-InvalidData") },
@@ -28,8 +28,8 @@ namespace AlbertoSouza.BackendChallengeApplication.Domain.Test
         public void GiveOneJwtData_WhenValidateJwt_ThenShouldReturnIsValidAndMessage(int caseId, bool expectedIsValid)
         {
             // Arrange
-            var jtw = _mapCases[caseId].jwtItem;
-            var expectedMessage = _mapCases[caseId].expectedMessage;
+            var jtw = _mappedCases[caseId].jwtItem;
+            var expectedMessage = _mappedCases[caseId].expectedMessage;
 
             // Act
             var result = JwtValidator.ValidateJwt(jtw);
