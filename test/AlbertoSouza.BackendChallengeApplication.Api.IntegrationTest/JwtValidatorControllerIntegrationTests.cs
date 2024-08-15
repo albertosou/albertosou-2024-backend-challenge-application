@@ -22,18 +22,18 @@ public class JwtValidatorControllerIntegrationTests(WebApplicationFactory<Progra
     [InlineData(2, false)]
     [InlineData(3, false)]
     [InlineData(4, false)]
-    public async Task PostJwt_ReturnsOKStatusCodeAndExpectedReturn(int caseId, bool expected)
+    public async Task GiveOneJwtData_WhenCalledApiJwtValidator_ThenReturnsOKStatusCodeAndExpectedIsValid(int caseId, bool expectedIsValid)
     {
-        // Arrange
+        // Arrange / Give
         var client = _factory.CreateClient();
         var jwtItem = _cases[caseId];
 
-        // Act
+        // Act / When
         var response = await client.GetAsync($"api/jwtvalidator?jwt={jwtItem}");
         var content = await response.Content.ReadFromJsonAsync<bool>();
 
-        // Assert
+        // Assert / Then
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-        Assert.Equal(expected, content);
+        Assert.Equal(expectedIsValid, content);
     }
 }
