@@ -1,25 +1,19 @@
-#See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
-USER app
+FROM mcr.microsoft.com/dotnet/sdk:8.0.101 AS build-env
 WORKDIR /app
+
 EXPOSE 8080
 EXPOSE 8081
 
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-ARG BUILD_CONFIGURATION=Release
-WORKDIR /src
-COPY ["src/AlbertoSouza.BackendChallengeApplication.Api/AlbertoSouza.BackendChallengeApplication.Api.csproj", "src/AlbertoSouza.BackendChallengeApplication.Api/"]
-RUN dotnet restore "./src/AlbertoSouza.BackendChallengeApplication.Api/AlbertoSouza.BackendChallengeApplication.Api.csproj"
-COPY . .
-WORKDIR "/src/src/AlbertoSouza.BackendChallengeApplication.Api"
-RUN dotnet build "./AlbertoSouza.BackendChallengeApplication.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
+# Copiar csproj e restaurar dependencias
+COPY *.csproj ./
+RUN dotnet restore
 
-FROM build AS publish
-ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./AlbertoSouza.BackendChallengeApplication.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+# Build da aplicacao
+COPY . ./
+RUN dotnet publish -c Release -o out
 
-FROM base AS final
+# Build da imagem
+FROM mcr.microsoft.com/dotnet/aspnet:8.0.1
 WORKDIR /app
-COPY --from=publish /app/publish .
+COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "AlbertoSouza.BackendChallengeApplication.Api.dll"]
