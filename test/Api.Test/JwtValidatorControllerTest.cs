@@ -1,4 +1,3 @@
-using AlbertoSouza.BackendChallengeApplication.Adapters;
 using AlbertoSouza.BackendChallengeApplication.Api.Controllers;
 using AlbertoSouza.BackendChallengeApplication.Ports;
 using Microsoft.AspNetCore.Mvc;

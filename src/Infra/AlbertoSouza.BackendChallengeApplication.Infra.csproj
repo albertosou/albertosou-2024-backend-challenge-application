@@ -12,8 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AlbertoSouza.BackendChallengeApplication.Adapters\AlbertoSouza.BackendChallengeApplication.Adapters.csproj" />
-    <ProjectReference Include="..\AlbertoSouza.BackendChallengeApplication.Ports\AlbertoSouza.BackendChallengeApplication.Ports.csproj" />
+    <ProjectReference Include="..\Adapters\AlbertoSouza.BackendChallengeApplication.Adapters.csproj" />
+    <ProjectReference Include="..\Ports\AlbertoSouza.BackendChallengeApplication.Ports.csproj" />
   </ItemGroup>
 
 </Project>

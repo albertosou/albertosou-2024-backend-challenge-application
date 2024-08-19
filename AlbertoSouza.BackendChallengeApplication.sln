@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.BackendChallengeApplication.Api", "src\AlbertoSouza.BackendChallengeApplication.Api\AlbertoSouza.BackendChallengeApplication.Api.csproj", "{05BDAD21-C878-4809-A01C-38C82AA8AE56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.BackendChallengeApplication.Api", "src\Api\AlbertoSouza.BackendChallengeApplication.Api.csproj", "{05BDAD21-C878-4809-A01C-38C82AA8AE56}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 - Api", "05 - Api", "{3EC6B7E6-4C23-4A28-8E72-2ECDB129FFFD}"
 EndProject
@@ -15,17 +15,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Core", "01 - Core", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06 - Tests", "06 - Tests", "{9DC3E8EE-A874-4898-B925-63CD52D98C6C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.BackendChallengeApplication.Api.IntegrationTest", "test\AlbertoSouza.BackendChallengeApplication.Api.IntegrationTest\AlbertoSouza.BackendChallengeApplication.Api.IntegrationTest.csproj", "{F772D46D-0756-4B83-8A0A-D622647FCB09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.BackendChallengeApplication.Api.IntegrationTest", "test\Api.IntegrationTest\AlbertoSouza.BackendChallengeApplication.Api.IntegrationTest.csproj", "{F772D46D-0756-4B83-8A0A-D622647FCB09}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.BackendChallengeApplication.Domain", "src\AlbertoSouza.BackendChallengeApplication.Domain\AlbertoSouza.BackendChallengeApplication.Domain.csproj", "{57C0A263-BEF2-44CE-A89E-702401B12CAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.BackendChallengeApplication.Domain", "src\Domain\AlbertoSouza.BackendChallengeApplication.Domain.csproj", "{57C0A263-BEF2-44CE-A89E-702401B12CAF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.BackendChallengeApplication.Ports", "src\AlbertoSouza.BackendChallengeApplication.Ports\AlbertoSouza.BackendChallengeApplication.Ports.csproj", "{DA026952-B098-4E09-89DB-6E9D9F6D4F48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.BackendChallengeApplication.Ports", "src\Ports\AlbertoSouza.BackendChallengeApplication.Ports.csproj", "{DA026952-B098-4E09-89DB-6E9D9F6D4F48}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.BackendChallengeApplication.Api.Test", "test\AlbertoSouza.BackendChallengeApplication.Api.Test\AlbertoSouza.BackendChallengeApplication.Api.Test.csproj", "{CF6D7B9D-19E4-4A0D-A944-130E7ADD72F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.BackendChallengeApplication.Api.Test", "test\Api.Test\AlbertoSouza.BackendChallengeApplication.Api.Test.csproj", "{CF6D7B9D-19E4-4A0D-A944-130E7ADD72F6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.BackendChallengeApplication.Adapters", "src\AlbertoSouza.BackendChallengeApplication.Adapters\AlbertoSouza.BackendChallengeApplication.Adapters.csproj", "{6F4E0DD5-84DB-4FC3-A428-F25174F98E9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.BackendChallengeApplication.Adapters", "src\Adapters\AlbertoSouza.BackendChallengeApplication.Adapters.csproj", "{6F4E0DD5-84DB-4FC3-A428-F25174F98E9A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.BackendChallengeApplication.Domain.Test", "test\AlbertoSouza.BackendChallengeApplication.Domain.Test\AlbertoSouza.BackendChallengeApplication.Domain.Test.csproj", "{5B901F1F-7F4F-4488-9CF8-F5D62760971E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.BackendChallengeApplication.Domain.Test", "test\Domain.Test\AlbertoSouza.BackendChallengeApplication.Domain.Test.csproj", "{5B901F1F-7F4F-4488-9CF8-F5D62760971E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00 - Doc", "00 - Doc", "{02772D67-4B2A-4A0D-9816-B4574EB7F860}"
 	ProjectSection(SolutionItems) = preProject
@@ -34,11 +34,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00 - Doc", "00 - Doc", "{02
 		doc\request-readme.md = doc\request-readme.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.BackendChallengeApplication.Adapters.Test", "test\AlbertoSouza.BackendChallengeApplication.Adapters.Test\AlbertoSouza.BackendChallengeApplication.Adapters.Test.csproj", "{77AAB9BD-5322-4DD9-8EAE-0CFA2A16FBDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.BackendChallengeApplication.Adapters.Test", "test\Adapters.Test\AlbertoSouza.BackendChallengeApplication.Adapters.Test.csproj", "{77AAB9BD-5322-4DD9-8EAE-0CFA2A16FBDE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Infrastructure", "04 - Infrastructure", "{747A7A86-F4DE-4683-AC31-6D57B59A148B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.BackendChallengeApplication.Infra", "src\AlbertoSouza.BackendChallengeApplication.Infra\AlbertoSouza.BackendChallengeApplication.Infra.csproj", "{29BF7D01-C6F6-4B04-B286-AF4707C0D25C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.BackendChallengeApplication.Infra", "src\Infra\AlbertoSouza.BackendChallengeApplication.Infra.csproj", "{29BF7D01-C6F6-4B04-B286-AF4707C0D25C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IntegrationTest", "IntegrationTest", "{AB22F70F-0F1A-4FC6-AD17-22CAC2BAA072}"
 EndProject
