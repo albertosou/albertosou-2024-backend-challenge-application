@@ -1,8 +1,5 @@
 ﻿using AlbertoSouza.BackendChallengeApplication.Ports;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-using System.IdentityModel.Tokens.Jwt;
-using System.Text.RegularExpressions;
 
 namespace AlbertoSouza.BackendChallengeApplication.Api.Controllers;
 

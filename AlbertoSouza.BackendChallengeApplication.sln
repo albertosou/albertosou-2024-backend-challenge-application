@@ -29,6 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.BackendChallen
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00 - Doc", "00 - Doc", "{02772D67-4B2A-4A0D-9816-B4574EB7F860}"
 	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
 		readme.md = readme.md
 		doc\request-readme.md = doc\request-readme.md
 	EndProjectSection
