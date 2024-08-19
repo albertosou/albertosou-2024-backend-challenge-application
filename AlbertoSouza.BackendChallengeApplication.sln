@@ -27,8 +27,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.BackendChallen
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.BackendChallengeApplication.Domain.Test", "test\AlbertoSouza.BackendChallengeApplication.Domain.Test\AlbertoSouza.BackendChallengeApplication.Domain.Test.csproj", "{5B901F1F-7F4F-4488-9CF8-F5D62760971E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00 - Doc", "00 - Doc", "{02772D67-4B2A-4A0D-9816-B4574EB7F860}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00 - Settings", "00 - Settings", "{02772D67-4B2A-4A0D-9816-B4574EB7F860}"
 	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		docker-compose.yml = docker-compose.yml
+		Dockerfile = Dockerfile
 		readme.md = readme.md
 		doc\request-readme.md = doc\request-readme.md
 	EndProjectSection
@@ -42,6 +47,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IntegrationTest", "IntegrationTest", "{AB22F70F-0F1A-4FC6-AD17-22CAC2BAA072}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest", "UnitTest", "{748B59BA-E375-4F54-A8A5-7DA201FD1E15}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{73ADCE75-8FE3-4421-93D4-532036F2B4FA}"
+	ProjectSection(SolutionItems) = preProject
+		doc\request-readme.md = doc\request-readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,6 +111,7 @@ Global
 		{29BF7D01-C6F6-4B04-B286-AF4707C0D25C} = {747A7A86-F4DE-4683-AC31-6D57B59A148B}
 		{AB22F70F-0F1A-4FC6-AD17-22CAC2BAA072} = {9DC3E8EE-A874-4898-B925-63CD52D98C6C}
 		{748B59BA-E375-4F54-A8A5-7DA201FD1E15} = {9DC3E8EE-A874-4898-B925-63CD52D98C6C}
+		{73ADCE75-8FE3-4421-93D4-532036F2B4FA} = {02772D67-4B2A-4A0D-9816-B4574EB7F860}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {61531008-4E20-433C-8967-00836228D93B}
