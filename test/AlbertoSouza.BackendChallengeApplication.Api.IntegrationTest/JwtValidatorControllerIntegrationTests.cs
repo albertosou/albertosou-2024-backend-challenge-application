@@ -5,9 +5,14 @@ using System.Net;
 namespace AlbertoSouza.BackendChallengeApplication.Api.IntegrationTest;
 
 
-public class JwtValidatorControllerIntegrationTests(WebApplicationFactory<Program> factory) : IClassFixture<WebApplicationFactory<Program>>
+public class JwtValidatorControllerIntegrationTests : IClassFixture<WebApplicationFactory<Program>>
 {
-    private readonly WebApplicationFactory<Program> _factory = factory;
+    private readonly WebApplicationFactory<Program> _factory;
+
+    public JwtValidatorControllerIntegrationTests(WebApplicationFactory<Program> factory)
+    {
+        _factory = factory;
+    }
 
     private readonly Dictionary<int, string> _mappedCases = new()
     {
