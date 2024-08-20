@@ -1,26 +1,26 @@
-# Desafio de Habilidades e Conhecimento TÈcnico
+# Desafio de Habilidades e Conhecimento T√©cnico
 
-## DescriÁ„o do Projeto
+## Descri√ß√£o do Projeto
 
-Este projeto consiste na construÁ„o de um micro serviÁo em .NET que realiza uma sÈrie de validaÁıes em um token JWT. A arquitetura adotada È a hexagonal, que separa as camadas em API, Adapters, Ports, Domain e Infrastructure. AlÈm disso, foram criados projetos para Testes Unit·rios e Testes de IntegraÁ„o.
+Este projeto consiste na constru√ß√£o de um micro servi√ßo em .NET que realiza uma s√©rie de valida√ß√µes em um token JWT. A arquitetura adotada √© a hexagonal, que separa as camadas em API, Adapters, Ports, Domain e Infrastructure. Al√©m disso, foram criados projetos para Testes Unit√°rios e Testes de Integra√ß√£o.
 
 ## Autor
 
-**Nome:** Alberto Souza  
-**GitHub:** [albertosou](https://github.com/albertosou)
-**LinkedIn:** [albertosouza](https://www.linkedin.com/in/albertosouza/)
+- **Nome:** Alberto Souza  
+- **GitHub:** [albertosou](https://github.com/albertosou)
+- **LinkedIn:** [albertosouza](https://www.linkedin.com/in/albertosouza/)
 
 ## Estrutura do Projeto
 
-- **API:** Camada respons·vel pela interface com o usu·rio e controle das requisiÁıes.
-- **Adapters:** ImplementaÁıes que conectam a API com o domÌnio e outras partes do sistema.
-- **Ports:** Interfaces que definem as operaÁıes que podem ser realizadas.
-- **Domain:** ContÈm a lÛgica de negÛcio e as regras de validaÁ„o.
-- **Infrastructure:** ImplementaÁıes de infraestrutura, como acesso a banco de dados e serviÁos externos.
-- **Testes:** Projetos dedicados a testes unit·rios e de integraÁ„o.
+- **API:** Camada respons√°vel pela interface com o usu√°rio e controle das requisi√ß√µes.
+- **Adapters:** Implementa√ß√µes que conectam a API com o dom√≠nio e outras partes do sistema.
+- **Ports:** Interfaces que definem as opera√ß√µes que podem ser realizadas.
+- **Domain:** Cont√©m a l√≥gica de neg√≥cio e as regras de valida√ß√£o.
+- **Infrastructure:** Implementa√ß√µes de infraestrutura, como acesso a banco de dados e servi√ßos externos.
+- **Testes:** Projetos dedicados a testes unit√°rios e de integra√ß√£o.
 
-## Vari·veis de Ambiente
-As seguintes vari·veis de ambiente precisam ser definidas:
+## Vari√°veis de Ambiente
+As seguintes vari√°veis de ambiente precisam ser definidas:
 - `AWS_USER_ID=000000000000`
 - `AWS_XRAY_REGION=aa-bbbb-1`
 - `AWS_XRAY_ACCESS_KEY_ID=22222222222222222222`
@@ -38,7 +38,7 @@ Saida:
 verdadeiro
 ```
 Justificativa:
-Abrindo o JWT, as informaÁıes contidas atendem a descriÁ„o:
+Abrindo o JWT, as informa√ß√µes contidas atendem a descri√ß√£o:
 ```json
 {
   "Role": "Admin",
@@ -69,7 +69,7 @@ Saida:
 falso
 ```
 Justificativa:
-Abrindo o JWT, a Claim Name possui caracter de n˙meros
+Abrindo o JWT, a Claim Name possui caracter de n√∫meros
 ```json
 {
   "Role": "External",
@@ -97,37 +97,37 @@ Abrindo o JWT, foi encontrado mais de 3 claims.
   "Name": "Valdir Aranha"
 }
 ```
-# DocumentaÁ„o Swagger
+# Documenta√ß√£o Swagger
 
 <img src="doc/img/swagger.png">
 
 ## Passos Realizados
 
-1. **CriaÁ„o do RepositÛrio:** Iniciei o projeto criando um repositÛrio no GitHub.
-2. **DocumentaÁ„o:** Adicionei arquivos de documentaÁ„o em formato Markdown (*.md).
+1. **Cria√ß√£o do Reposit√≥rio:** Iniciei o projeto criando um reposit√≥rio no GitHub.
+2. **Documenta√ß√£o:** Adicionei arquivos de documenta√ß√£o em formato Markdown (*.md).
 3. **Esqueleto da Arquitetura:** Criei a estrutura base da arquitetura hexagonal utilizando um BAT.
-4. **Health Check:** Implementei um serviÁo b·sico de Health Check.
+4. **Health Check:** Implementei um servi√ßo b√°sico de Health Check.
 5. **Controller:** Desenvolvi um Controller na camada API que atende ao enunciado do desafio.
-6. **Teste de IntegraÁ„o:** Implementei testes de integraÁ„o utilizando o padr„o Given-When-Then (GWT).
-7. **RefatoraÁ„o:** Refatorei os projetos "Domain" e "Adapter", incluindo testes unit·rios com o padr„o DDD.
-8. **InjeÁ„o de DependÍncia:** Configurei a injeÁ„o de dependÍncia no projeto "Infrastructure".
-9. **RefatoraÁ„o da API:** Ajustei o projeto "API" para aderir ao modelo de arquitetura idealizado com DDD.
-10. **Logging:** Configurei o Serilog para logging na aplicaÁ„o.
-11. **Postman:** Criei uma coleÁ„o de testes no Postman.
-12. **Swagger:** Atualizei a documentaÁ„o no Swagger.
-13. **OpenTelemetry:** SubstituÌ o Serilog por AWS Distro for OpenTelemetry (ADOT).
+6. **Teste de Integra√ß√£o:** Implementei testes de integra√ß√£o utilizando o padr√£o Given-When-Then (GWT).
+7. **Refatora√ß√£o:** Refatorei os projetos "Domain" e "Adapter", incluindo testes unit√°rios com o padr√£o DDD.
+8. **Inje√ß√£o de Depend√™ncia:** Configurei a inje√ß√£o de depend√™ncia no projeto "Infrastructure".
+9. **Refatora√ß√£o da API:** Ajustei o projeto "API" para aderir ao modelo de arquitetura idealizado com DDD.
+10. **Logging:** Configurei o Serilog para logging na aplica√ß√£o.
+11. **Postman:** Criei uma cole√ß√£o de testes no Postman.
+12. **Swagger:** Atualizei a documenta√ß√£o no Swagger.
+13. **OpenTelemetry:** Substitu√≠ o Serilog por AWS Distro for OpenTelemetry (ADOT).
 
 ## Desafios Encontrados
 
-- **Docker e AWS:** Ao utilizar a vers„o .NET 8 com o template de Dockerfile, enfrentei dificuldades ao integrar com AWS e executar o comando `docker compose up -d`. ApÛs v·rias tentativas, resolvi o problema utilizando .NET 7 e uma soluÁ„o simplificada.
+- **Docker e AWS:** Ao utilizar a vers√£o .NET 8 com o template de Dockerfile, enfrentei dificuldades ao integrar com AWS e executar o comando `docker compose up -d`. Ap√≥s v√°rias tentativas, resolvi o problema utilizando .NET 7 e uma solu√ß√£o simplificada.
   
-- **OpenTelemetry:** A configuraÁ„o do container Docker do collector (imagem: amazon/aws-otel-collector:latest) estava incorreta, o que atrasou a implementaÁ„o. Embora tenha conseguido implementar o AWS X-Ray Collector e deixei a soluÁ„o bastante evoluida para integraÁıes OpenTelemetry, com soluÁıes como Grafana, Jaeger, Prometheus, Datadog, etc. N„o alcancei todos os objetivos planejados.
+- **OpenTelemetry:** A configura√ß√£o do container Docker do collector (imagem: amazon/aws-otel-collector:latest) estava incorreta, o que atrasou a implementa√ß√£o. Embora tenha conseguido implementar o AWS X-Ray Collector e deixei a solu√ß√£o bastante evoluida para integra√ß√µes OpenTelemetry, com solu√ß√µes como Grafana, Jaeger, Prometheus, Datadog, etc. N√£o alcancei todos os objetivos planejados.
 
-- **ImplantaÁ„o na AWS:** Iniciei a implantaÁ„o diretamente em uma m·quina EC2 e, apÛs a validaÁ„o, tentei migrar para um modelo ECS com ECR. Enfrentei problemas de memÛria provisionada para as tarefas, o que limitou o tempo disponÌvel para concluir a implementaÁ„o e n„o consegui terminar de implementar o GitHub Actions.
+- **Implanta√ß√£o na AWS:** Iniciei a implanta√ß√£o diretamente em uma m√°quina EC2 e, ap√≥s a valida√ß√£o, tentei migrar para um modelo ECS com ECR. Enfrentei problemas de mem√≥ria provisionada para as tarefas, o que limitou o tempo dispon√≠vel para concluir a implementa√ß√£o e n√£o consegui terminar de implementar o GitHub Actions.
 
-## PrÈ-requisitos
+## Pr√©-requisitos
 
-Para rodar o projeto, È necess·rio ter:
+Para rodar o projeto, √© necess√°rio ter:
 
 - Linux, MacOS ou Windows (Docker Desktop ou WSL)
 - .NET 7 SDK / .NET 8 SDK
@@ -135,6 +135,6 @@ Para rodar o projeto, È necess·rio ter:
 - Docker
 - Git
 
-## Conclus„o
+## Conclus√£o
 
-Este desafio proporcionou uma rica experiÍncia em desenvolvimento de micro serviÁos, arquitetura hexagonal, testes e integraÁ„o com serviÁos da AWS. Apesar dos desafios enfrentados, consegui implementar a maior parte das funcionalidades planejadas e adquirir novos conhecimentos valiosos ao longo do processo.
+Este desafio proporcionou uma rica experi√™ncia em desenvolvimento de micro servi√ßos, arquitetura hexagonal, testes e integra√ß√£o com servi√ßos da AWS. Apesar dos desafios enfrentados, consegui implementar a maior parte das funcionalidades planejadas e adquirir novos conhecimentos valiosos ao longo do processo.
