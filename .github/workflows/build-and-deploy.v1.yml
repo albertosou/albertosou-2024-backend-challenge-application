@@ -38,12 +38,12 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: ${{ secrets.AWS_REGION }}
       run: |
-        aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin 496844150935.dkr.ecr.us-east-1.amazonaws.com
+        aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin  ${{ secrets.AWS_USER_ID }}.dkr.ecr.us-east-1.amazonaws.com
 
     - name: Push Docker images to ECR
       run: |
-        docker tag backend-challenge-application:latest 496844150935.dkr.ecr.us-east-1.amazonaws.com/albertosou-2024/backend-challenge-application:latest
-        docker push 496844150935.dkr.ecr.us-east-1.amazonaws.com/albertosou-2024/backend-challenge-application:latest
+        docker tag backend-challenge-application:latest ${{ secrets.AWS_USER_ID }}.dkr.ecr.us-east-1.amazonaws.com/albertosou-2024/backend-challenge-application:latest
+        docker push ${{ secrets.AWS_USER_ID }}.dkr.ecr.us-east-1.amazonaws.com/albertosou-2024/backend-challenge-application:latest
 
     - name: Deploy to AWS
       env:
