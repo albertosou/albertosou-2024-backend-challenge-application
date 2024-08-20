@@ -34,7 +34,7 @@ public class JwtValidatorControllerIntegrationTests : IClassFixture<WebApplicati
         var jwtItem = _mappedCases[caseId];
 
         // Act / When
-        var response = await client.GetAsync($"api/jwtvalidator?jwt={jwtItem}");
+        var response = await client.GetAsync($"api/v1/jwtvalidator?jwt={jwtItem}");
         var content = await response.Content.ReadFromJsonAsync<bool>();
 
         // Assert / Then
