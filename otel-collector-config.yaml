@@ -16,8 +16,6 @@ exporters:
     loglevel: debug
   awsxray:
     region: ${env:AWS_REGION}
-    access_key_id: ${env:AWS_ACCESS_KEY_ID}
-    secret_access_key: ${env:AWS_SECRET_ACCESS_KEY}
 
 extensions:
   health_check:
