@@ -8,6 +8,7 @@ Este projeto consiste na construção de um micro serviço em .NET que realiza uma 
 
 **Nome:** Alberto Souza  
 **GitHub:** [albertosou](https://github.com/albertosou)
+**LinkedIn:** [albertosouza](https://www.linkedin.com/in/albertosouza/)
 
 ## Estrutura do Projeto
 
@@ -17,6 +18,13 @@ Este projeto consiste na construção de um micro serviço em .NET que realiza uma 
 - **Domain:** Contém a lógica de negócio e as regras de validação.
 - **Infrastructure:** Implementações de infraestrutura, como acesso a banco de dados e serviços externos.
 - **Testes:** Projetos dedicados a testes unitários e de integração.
+
+## Variáveis de Ambiente
+As seguintes variáveis de ambiente precisam ser definidas:
+- `AWS_USER_ID=000000000000`
+- `AWS_XRAY_REGION=aa-bbbb-1`
+- `AWS_XRAY_ACCESS_KEY_ID=22222222222222222222`
+- `AWS_XRAY_SECRET_ACCESS_KEY=1111111111111111111111111111111111111111`
 
 # Massa de teste 
 
