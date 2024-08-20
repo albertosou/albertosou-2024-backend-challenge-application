@@ -89,7 +89,9 @@ Abrindo o JWT, foi encontrado mais de 3 claims.
   "Name": "Valdir Aranha"
 }
 ```
+# Documentação Swagger
 
+<img src="doc/img/swagger.png">
 
 ## Passos Realizados
 
@@ -111,9 +113,9 @@ Abrindo o JWT, foi encontrado mais de 3 claims.
 
 - **Docker e AWS:** Ao utilizar a versão .NET 8 com o template de Dockerfile, enfrentei dificuldades ao integrar com AWS e executar o comando `docker compose up -d`. Após várias tentativas, resolvi o problema utilizando .NET 7 e uma solução simplificada.
   
-- **OpenTelemetry:** A configuração do container Docker do collector (imagem: amazon/aws-otel-collector:latest) estava incorreta, o que atrasou a implementação. Embora tenha conseguido implementar o AWS X-Ray Collector, não alcancei todos os objetivos planejados.
+- **OpenTelemetry:** A configuração do container Docker do collector (imagem: amazon/aws-otel-collector:latest) estava incorreta, o que atrasou a implementação. Embora tenha conseguido implementar o AWS X-Ray Collector e deixei a solução bastante evoluida para integrações OpenTelemetry, com soluções como Grafana, Jaeger, Prometheus, Datadog, etc. Não alcancei todos os objetivos planejados.
 
-- - **Implantação na AWS:** Iniciei a implantação diretamente em uma máquina EC2 e, após a validação, tentei migrar para um modelo ECS com ECR. Enfrentei problemas de memória provisionada para as tarefas, o que limitou o tempo disponível para concluir a implementação e não consegui terminar de implementar o GitHub Actions.
+- **Implantação na AWS:** Iniciei a implantação diretamente em uma máquina EC2 e, após a validação, tentei migrar para um modelo ECS com ECR. Enfrentei problemas de memória provisionada para as tarefas, o que limitou o tempo disponível para concluir a implementação e não consegui terminar de implementar o GitHub Actions.
 
 ## Pré-requisitos
 
