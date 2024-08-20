@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Diagnostics.HealthChecks;
 
-namespace AlbertoSouza.AppBackendChallenge.Infrastructure.HealtCheck;
+namespace AlbertoSouza.AppBackendChallenge.Infrastructure.OpenTelemetry;
 
-public class AdotHealthCheck : IHealthCheck
+public class OpenTelemetryHealthCheck : IHealthCheck
 {
     public Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default)
     {

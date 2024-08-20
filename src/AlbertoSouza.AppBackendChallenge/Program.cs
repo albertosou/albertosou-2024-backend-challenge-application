@@ -1,9 +1,9 @@
-using AlbertoSouza.AppBackendChallenge.Infrastructure.HealtCheck;
+using AlbertoSouza.AppBackendChallenge.Infrastructure.OpenTelemetry;
 using AlbertoSouza.AppBackendChallenge.Infrastructure.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.UseHealthChecksServices();
+builder.UseOpenTelemetryServices();
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -20,7 +20,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHealthChecks();
+app.UseOpenTelemetry();
 
 app.UseHttpsRedirection();
 

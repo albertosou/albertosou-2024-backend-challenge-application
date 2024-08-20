@@ -28,12 +28,12 @@ service:
     traces:
       receivers: [otlp]
       processors: [batch]
-      exporters: [logging,awsxray]
-    # metrics:
-    #   receivers: [otlp]
-    #   processors: [batch]
-    #   exporters: [logging,awsxray]
-    # logs:
-    #   receivers: [otlp]
-    #   processors: [batch]
-    #   exporters: [logging]
+      exporters: [logging, awsxray]
+    logs:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [logging]
+    metrics:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [logging]
