@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: CI/CD Pipeline
 
 on:
   push:
@@ -29,27 +29,27 @@ jobs:
     - name: Test
       run: dotnet test test/AlbertoSouza.AppBackendChallenge.Test --no-build --verbosity normal
 
-    - name: Build and push Docker images
-      env:
-        AWS_XRAY_ACCESS_KEY_ID: ${{ secrets.AWS_XRAY_ACCESS_KEY_ID }}
-        AWS_XRAY_REGION: ${{ secrets.AWS_XRAY_REGION }}
-        AWS_XRAY_SECRET_ACCESS_KEY: ${{ secrets.AWS_XRAY_SECRET_ACCESS_KEY }}
-      run: |
-        docker-compose build
-        # Aqui você adicionaria o comando para fazer push das imagens para um registro, se necessário
-        # Por exemplo: docker-compose push
+    - name: Build Docker images
+      run: docker-compose build
 
-    - name: Deploy
+    - name: Login to Amazon ECR
       env:
-        AWS_XRAY_ACCESS_KEY_ID: ${{ secrets.AWS_XRAY_ACCESS_KEY_ID }}
-        AWS_XRAY_REGION: ${{ secrets.AWS_XRAY_REGION }}
-        AWS_XRAY_SECRET_ACCESS_KEY: ${{ secrets.AWS_XRAY_SECRET_ACCESS_KEY }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: ${{ secrets.AWS_REGION }}
       run: |
-        # Parar e remover containers existentes
-        docker compose down -v
-        
-        # Remover todas as imagens
-        docker rmi $(docker images -q)
-        
-        # Iniciar os novos containers
-        docker compose up -d
+        aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin 496844150935.dkr.ecr.us-east-1.amazonaws.com
+
+    - name: Push Docker images to ECR
+      run: |
+        docker tag backend-challenge-application:latest 496844150935.dkr.ecr.us-east-1.amazonaws.com/albertosou-2024/backend-challenge-application:latest
+        docker push 496844150935.dkr.ecr.us-east-1.amazonaws.com/albertosou-2024/backend-challenge-application:latest
+
+    - name: Deploy to AWS
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: ${{ secrets.AWS_REGION }}
+      run: |
+        # Atualizar o serviço do ECS para usar a nova imagem
+        aws ecs update-service --cluster cluster-albertosou-2024-backend-challenge --service service-albertosou-2024-backend-challenge --force-new-deployment

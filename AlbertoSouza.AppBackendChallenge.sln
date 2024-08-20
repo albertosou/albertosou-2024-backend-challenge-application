@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Setup", "01 - Setup", "{76FE33B9-60EB-4779-9905-B381DC1B8202}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		.github\workflows\build-and-deploy.yml = .github\workflows\build-and-deploy.yml
+		docker-compose.yml = docker-compose.yml
+		Dockerfile = Dockerfile
+		otel-collector-config.yaml = otel-collector-config.yaml
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - App", "02 - App", "{A7574E6C-FB4B-48E3-952F-F72CE0141165}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Test", "03 - Test", "{260CF5F3-9D7A-49F5-B30F-7243975DD7AE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.AppBackendChallenge", "src\AlbertoSouza.AppBackendChallenge\AlbertoSouza.AppBackendChallenge.csproj", "{23C39F36-72D6-4AB5-90FB-8DB1ED711C11}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{1CAB0349-18CD-4407-A1C0-9F638A5F8B14}"
+	ProjectSection(SolutionItems) = preProject
+		doc\esqueleto-projeto.v1.bat = doc\esqueleto-projeto.v1.bat
+		doc\esqueleto-projeto.v2.bat = doc\esqueleto-projeto.v2.bat
+		doc\request-readme.md = doc\request-readme.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.AppBackendChallenge.Test", "test\AlbertoSouza.AppBackendChallenge.Test\AlbertoSouza.AppBackendChallenge.Test.csproj", "{336E2104-4876-43A5-AFED-32BD0B64B068}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23C39F36-72D6-4AB5-90FB-8DB1ED711C11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23C39F36-72D6-4AB5-90FB-8DB1ED711C11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23C39F36-72D6-4AB5-90FB-8DB1ED711C11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23C39F36-72D6-4AB5-90FB-8DB1ED711C11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{336E2104-4876-43A5-AFED-32BD0B64B068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{336E2104-4876-43A5-AFED-32BD0B64B068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{336E2104-4876-43A5-AFED-32BD0B64B068}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{336E2104-4876-43A5-AFED-32BD0B64B068}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{23C39F36-72D6-4AB5-90FB-8DB1ED711C11} = {A7574E6C-FB4B-48E3-952F-F72CE0141165}
+		{1CAB0349-18CD-4407-A1C0-9F638A5F8B14} = {76FE33B9-60EB-4779-9905-B381DC1B8202}
+		{336E2104-4876-43A5-AFED-32BD0B64B068} = {260CF5F3-9D7A-49F5-B30F-7243975DD7AE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E7690160-A22E-44BE-B710-B03C146E102E}
+	EndGlobalSection
+EndGlobal

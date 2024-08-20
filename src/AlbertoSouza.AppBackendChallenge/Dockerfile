@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:7.0-alpine AS build-env
 WORKDIR /app
 
-COPY ./src/AlbertoSouza.AppBackendChallenge/ ./
+COPY . ./
 RUN dotnet restore
 RUN dotnet publish -c Release -o out
 
