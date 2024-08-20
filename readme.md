@@ -113,7 +113,7 @@ Abrindo o JWT, foi encontrado mais de 3 claims.
   
 - **OpenTelemetry:** A configuração do container Docker do collector (imagem: amazon/aws-otel-collector:latest) estava incorreta, o que atrasou a implementação. Embora tenha conseguido implementar o AWS X-Ray Collector, não alcancei todos os objetivos planejados.
 
-- **Implantação na AWS:** Iniciei a implantação diretamente em uma máquina EC2 e, após a validação, tentei migrar para um modelo ECS com ECR. Enfrentei problemas de memória provisionada para as tarefas, o que limitou o tempo disponível para concluir a implementação.
+- - **Implantação na AWS:** Iniciei a implantação diretamente em uma máquina EC2 e, após a validação, tentei migrar para um modelo ECS com ECR. Enfrentei problemas de memória provisionada para as tarefas, o que limitou o tempo disponível para concluir a implementação e não consegui terminar de implementar o GitHub Actions.
 
 ## Pré-requisitos
 
