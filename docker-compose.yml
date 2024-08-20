@@ -1,8 +1,21 @@
-version: "3"
-services: 
-    api:
-        build: 
-            context: ./src/AlbertoSouza.AppBackendChallenge
-            dockerfile: Dockerfile
-        ports: 
-            - "80:80"
+services:
+  api:
+    build:
+        context: ./src/AlbertoSouza.AppBackendChallenge
+        dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - aws-otel-collector
+
+  aws-otel-collector:
+    image: amazon/aws-otel-collector:latest
+    command: ["--config=/etc/otel-collector-config.yaml"]
+    volumes:
+      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
+    environment:
+      - AWS_REGION=${AWS_XRAY_REGION}
+      - AWS_ACCESS_KEY_ID=${AWS_XRAY_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_XRAY_SECRET_ACCESS_KEY}

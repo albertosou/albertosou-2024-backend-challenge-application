@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Setup", "01 - Setup", 
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 		docker-compose.yml = docker-compose.yml
+		otel-collector-config.yaml = otel-collector-config.yaml
 		readme.md = readme.md
 	EndProjectSection
 EndProject
@@ -16,10 +17,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - App", "02 - App", "{A7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Test", "03 - Test", "{260CF5F3-9D7A-49F5-B30F-7243975DD7AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlbertoSouza.AppBackendChallenge", "src\AlbertoSouza.AppBackendChallenge\AlbertoSouza.AppBackendChallenge.csproj", "{23C39F36-72D6-4AB5-90FB-8DB1ED711C11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.AppBackendChallenge", "src\AlbertoSouza.AppBackendChallenge\AlbertoSouza.AppBackendChallenge.csproj", "{23C39F36-72D6-4AB5-90FB-8DB1ED711C11}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{1CAB0349-18CD-4407-A1C0-9F638A5F8B14}"
 	ProjectSection(SolutionItems) = preProject
+		doc\esqueleto-projeto.v1.bat = doc\esqueleto-projeto.v1.bat
+		doc\esqueleto-projeto.v2.bat = doc\esqueleto-projeto.v2.bat
 		doc\request-readme.md = doc\request-readme.md
 	EndProjectSection
 EndProject

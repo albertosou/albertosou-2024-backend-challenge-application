@@ -1,16 +1,15 @@
-using AlbertoSouza.AppBackendChallenge.Infrastructure;
+using AlbertoSouza.AppBackendChallenge.Infrastructure.HealtCheck;
+using AlbertoSouza.AppBackendChallenge.Infrastructure.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.UseHealthChecksServices();
 
+// Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddApplicationServices();
-
-//TODO: Implementar HealthChecks - Testar disponibilidades externas
-builder.Services.AddHealthChecks();
 
 var app = builder.Build();
 
@@ -21,13 +20,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseHealthChecks();
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
-
-app.MapHealthChecks("/health");
 
 app.Run();
 

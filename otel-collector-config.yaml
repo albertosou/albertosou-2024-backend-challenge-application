@@ -1,0 +1,41 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
+
+processors:
+  batch:
+    timeout: 1s
+    send_batch_size: 1024
+
+exporters:
+  logging:
+    loglevel: debug
+  awsxray:
+    region: ${env:AWS_REGION}
+    access_key_id: ${env:AWS_ACCESS_KEY_ID}
+    secret_access_key: ${env:AWS_SECRET_ACCESS_KEY}
+
+extensions:
+  health_check:
+  pprof:
+  zpages:
+
+service:
+  extensions: [health_check, pprof, zpages]
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [logging,awsxray]
+    metrics:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [logging,awsxray]
+    logs:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [logging,awsxray]
