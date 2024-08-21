@@ -1,0 +1,95 @@
+name: CI/CD Pipeline
+
+# Este workflow realiza as seguintes etapas:
+# 1. Faz checkout do código-fonte.
+# 2. Configura o ambiente .NET.
+# 3. Restaura as dependências do projeto.
+# 4. Compila a aplicação.
+# 5. Executa os testes.
+# 6. Constrói as imagens Docker.
+# 7. Faz login no Amazon ECR.
+# 8. Faz push das imagens Docker para o ECR.
+# 9. Atualiza o serviço do ECS para usar a nova imagem.
+# 10. Notifica o sucesso ou a falha do pipeline.
+
+on:
+  push:
+    branches: 
+      - ${{ secrets.AWS_BRANCH_PROD }}
+  pull_request:
+    branches: 
+      - ${{ secrets.AWS_BRANCH_PROD }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
+
+    - name: Cache NuGet packages
+      uses: actions/cache@v3
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-
+
+    - name: Restore dependencies
+      run: |
+        dotnet restore src/AlbertoSouza.AppBackendChallenge || { echo "Falha ao restaurar dependências"; exit 1; }
+
+    - name: Build
+      run: |
+        dotnet build src/AlbertoSouza.AppBackendChallenge --no-restore || { echo "Falha ao construir a aplicação"; exit 1; }
+
+    - name: Test
+      run: |
+        dotnet test test/AlbertoSouza.AppBackendChallenge.Test --no-build --verbosity normal || { echo "Falha nos testes"; exit 1; }
+
+    - name: Build Docker images
+      run: |
+        docker-compose build || { echo "Falha ao construir as imagens Docker"; exit 1; }
+
+    - name: Login to Amazon ECR
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: ${{ secrets.AWS_REGION }}
+      run: |
+        echo "Fazendo login no Amazon ECR..."
+        aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin  ${{ secrets.AWS_USER_ID }}.dkr.ecr.us-east-1.amazonaws.com || { echo "Falha ao fazer login no ECR"; exit 1; }
+
+    - name: Push Docker images to ECR
+      run: |
+        echo "Fazendo push da imagem Docker para o ECR..."
+        docker tag backend-challenge-application:latest ${{ secrets.AWS_USER_ID }}.dkr.ecr.us-east-1.amazonaws.com/albertosou-2024/backend-challenge-application:latest
+        docker push ${{ secrets.AWS_USER_ID }}.dkr.ecr.us-east-1.amazonaws.com/albertosou-2024/backend-challenge-application:latest || { echo "Falha ao fazer push da imagem Docker"; exit 1; }
+
+    - name: Deploy to AWS
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: ${{ secrets.AWS_REGION }}
+      run: |
+        echo "Atualizando o serviço do ECS para usar a nova imagem..."
+        aws ecs update-service --cluster cluster-albertosou-2024-backend-challenge --service service-albertosou-2024-backend-challenge --force-new-deployment || { echo "Falha ao atualizar o serviço do ECS"; exit 1; }
+
+    - name: Notify Success
+      if: success()  # Notifica apenas se o job foi bem-sucedido
+      run: |
+        echo "Pipeline executado com sucesso!"
+        # Aqui você pode adicionar um comando para enviar uma notificação, por exemplo, para Slack ou e-mail.
+        # Exemplo: curl -X POST -H 'Content-type: application/json' --data '{"text":"Pipeline executado com sucesso!"}' https://hooks.slack.com/services/your/slack/webhook
+
+    - name: Notify Failure
+      if: failure()  # Notifica apenas se o job falhar
+      run: |
+        echo "Pipeline falhou!"
+        # Aqui você pode adicionar um comando para enviar uma notificação de falha.
+        # Exemplo: curl -X POST -H 'Content-type: application/json' --data '{"text":"Pipeline falhou!"}' https://hooks.slack.com/services/your/slack/webhook

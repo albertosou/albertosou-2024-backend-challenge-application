@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Setup", "01 - Setup", 
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 		docker-compose.yml = docker-compose.yml
+		.github\workflows\build-and-deploy.v1.yml = .github\workflows\build-and-deploy.v1.yml
+		Dockerfile = Dockerfile
 		otel-collector-config.yaml = otel-collector-config.yaml
 		readme.md = readme.md
 	EndProjectSection
