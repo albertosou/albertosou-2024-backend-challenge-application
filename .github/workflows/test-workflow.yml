@@ -3,7 +3,7 @@ name: Test Workflow
 on: 
   push:
     branches:
-      - main  # ou a branch que você está usando
+      - master  # ou a branch que você está usando
 
 jobs:
   test:
@@ -11,3 +11,6 @@ jobs:
     steps:
       - name: Hello World
         run: echo "Hello, World!"
+
+      - name: Hello World
+        run: echo "Hello, ${{ vars.AWS_BRANCH_PROD }}!"
