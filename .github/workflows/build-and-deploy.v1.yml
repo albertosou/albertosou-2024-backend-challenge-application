@@ -14,16 +14,12 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: 
-      - vars.AWS_BRANCH_PROD
   pull_request:
-    branches: 
-      - vars.AWS_BRANCH_PROD
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    # if: github.ref == 'refs/heads/' + vars.AWS_BRANCH_PROD
+    if: github.ref == 'refs/heads/' + vars.AWS_BRANCH_PROD
     steps:
     - uses: actions/checkout@v3
 
