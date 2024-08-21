@@ -42,10 +42,12 @@ jobs:
     - name: 3. Restore dependencies
       run: |
         dotnet restore src/AlbertoSouza.AppBackendChallenge || { echo "Falha ao restaurar dependências"; exit 1; }
+        dotnet restore test/AlbertoSouza.AppBackendChallenge.Test || { echo "Falha ao restaurar dependências Test"; exit 1; }
 
     - name: 4. Build
       run: |
         dotnet build src/AlbertoSouza.AppBackendChallenge --no-restore || { echo "Falha ao construir a aplicação"; exit 1; }
+        dotnet build test/AlbertoSouza.AppBackendChallenge.Test --no-restore || { echo "Falha ao construir a aplicação Test"; exit 1; }
 
     - name: 5. Test
       run: |
