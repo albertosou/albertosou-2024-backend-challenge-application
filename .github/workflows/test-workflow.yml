@@ -3,7 +3,7 @@ name: Test Workflow
 on: 
   push:
     branches:
-      - main  # ou a branch que você está usando
+      - master  # ou a branch que você está usando
 
 jobs:
   test:

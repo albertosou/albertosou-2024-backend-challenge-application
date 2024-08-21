@@ -15,9 +15,11 @@ name: CI/CD Pipeline
 on:
   push:
     branches: 
+      - master
       - ${{ secrets.AWS_BRANCH_PROD }}
   pull_request:
     branches: 
+      - master
       - ${{ secrets.AWS_BRANCH_PROD }}
 
 jobs:
