@@ -3,6 +3,7 @@ name: CI/CD Pipeline
 # Este workflow realiza as seguintes etapas:
 # 1. Faz checkout do código-fonte.
 # 2. Configura o ambiente .NET.
+# 3. Instalação do Docker Compose.
 # 3. Restaura as dependências do projeto.
 # 4. Compila a aplicação.
 # 5. Executa os testes.
@@ -39,11 +40,19 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-nuget-
 
-    - name: Install Docker Compose
+    - name: 3. Install Docker
       run: |
         sudo apt-get update || { echo "Falha atualizar pacotes"; exit 1; }
         sudo apt-get install -y docker || { echo "Falha instalar docker"; exit 1; }
         sudo apt-get install -y docker-compose || { echo "Falha instalar docker-compose"; exit 1; }
+
+    - name: Debug AWS Environment Variables
+      run: |
+        echo "AWS_REGION: $AWS_REGION"
+        echo "AWS_USER_ID: $AWS_USER_ID"
+      env:
+        AWS_REGION: ${{ secrets.AWS_REGION }}
+        AWS_USER_ID: ${{ secrets.AWS_USER_ID }}
 
     - name: 3. Restore dependencies
       run: |
