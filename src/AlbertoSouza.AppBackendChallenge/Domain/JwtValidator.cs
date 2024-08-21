@@ -5,6 +5,15 @@ namespace AlbertoSouza.AppBackendChallenge.Domain;
 
 public class JwtValidator
 {
+    public static readonly string MSG_VALID_TOKEN = "Token JWT válido";
+    public static readonly string MSG_INVALID_TOKEN = "Token JWT inválido";
+    public static readonly string MSG_INVALID_TOKEN_CLAIM_COUNT = "O token deve conter exatamente 3 claims";
+    public static readonly string MSG_INVALID_TOKEN_CLAIM_CONTAINS = "As claims Name, Role e Seed são obrigatórias";
+    public static readonly string MSG_INVALID_TOKEN_ROLE_CONTAINS = "A claim Role deve ser Admin, Member ou External";
+    public static readonly string MSG_INVALID_TOKEN_NAME_NUMBERS = "A claim Name não pode conter números";
+    public static readonly string MSG_INVALID_TOKEN_NAME_LENGTH = "A claim Name não pode ter mais de 256 caracteres";
+    public static readonly string MSG_INVALID_TOKEN_SEED_PRIME = "A claim Seed deve ser um número primo";
+
     public static (bool IsValid, string ValidationMessage) ValidateJwt(string jwt)
     {
 
@@ -40,7 +49,7 @@ public class JwtValidator
             return seedValidation;
         }
 
-        return (true, "Token JWT válido");
+        return (true, MSG_VALID_TOKEN);
     }
     public static (bool IsValid, string ValidationMessage, JwtSecurityToken? token) GetTokenAndValidateFormat(string jwt)
     {
@@ -56,24 +65,23 @@ public class JwtValidator
         }
         catch
         {
-            return (false, "Token JWT inválido", default(JwtSecurityToken));
+            return (false, MSG_INVALID_TOKEN, default(JwtSecurityToken));
         }
-        return (false, "Token JWT inválido", default(JwtSecurityToken));
+        return (false, MSG_INVALID_TOKEN, default(JwtSecurityToken));
 
     }
     public static (bool IsValid, string ValidationMessage) ValidateAccept(JwtSecurityToken token)
     {
         if (token.Claims.Count() != 3)
         {
-            return (false, "O token deve conter exatamente 3 claims");
+            return (false, MSG_INVALID_TOKEN_CLAIM_COUNT);
         }
 
         var validClaims = new[] { "Name", "Role", "Seed" };
-        var formatClaims = string.Join(", ", validClaims);
 
         if (token.Claims.Any(el => !validClaims.Contains(el.Type) || string.IsNullOrEmpty(el.Value)))
         {
-            return (false, $"As claims {formatClaims} são obrigatórias");
+            return (false, MSG_INVALID_TOKEN_CLAIM_CONTAINS);
         }
 
         return (true, string.Empty);
@@ -85,12 +93,12 @@ public class JwtValidator
 
         if (Regex.IsMatch(name, @"\d"))
         {
-            return (false, "A claim Name não pode conter números");
+            return (false, MSG_INVALID_TOKEN_NAME_NUMBERS);
         }
 
         if (name.Length > 256)
         {
-            return (false, "A claim Name não pode ter mais de 256 caracteres");
+            return (false, MSG_INVALID_TOKEN_NAME_LENGTH);
         }
 
         return (true, string.Empty);
@@ -103,7 +111,7 @@ public class JwtValidator
 
         if (!validRoles.Contains(role))
         {
-            return (false, "A claim Role deve ser Admin, Member ou External");
+            return (false, MSG_INVALID_TOKEN_ROLE_CONTAINS);
         }
 
         return (true, string.Empty);
@@ -115,7 +123,7 @@ public class JwtValidator
 
         if (!int.TryParse(seed, out int seedValue) || !IsPrime(seedValue))
         {
-            return (false, "A claim Seed deve ser um número primo");
+            return (false, MSG_INVALID_TOKEN_SEED_PRIME);
         }
 
         return (true, string.Empty);
