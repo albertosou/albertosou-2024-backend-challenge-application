@@ -1,5 +1,7 @@
 # Desafio de Habilidades e Conhecimento Técnico
 
+[![CI/CD Pipeline](https://github.com/albertosou/albertosou-2024-backend-challenge-application/actions/workflows/build-and-deploy.v1.yml/badge.svg)](https://github.com/albertosou/albertosou-2024-backend-challenge-application/actions/workflows/build-and-deploy.v1.yml)
+
 ## Descrição do Projeto
 
 Este projeto consiste na construção de um micro serviço em .NET que realiza uma série de validações em um token JWT. A arquitetura adotada é a hexagonal, que separa as camadas em API, Adapters, Ports, Domain e Infrastructure. Além disso, foram criados projetos para Testes Unitários e Testes de Integração.
