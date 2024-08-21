@@ -1,6 +1,6 @@
 # Desafio de Habilidades e Conhecimento Técnico
 
-[![CI/CD Pipeline](https://github.com/albertosou/albertosou-2024-backend-challenge-application/actions/workflows/build-and-deploy.v1.yml/badge.svg)](https://github.com/albertosou/albertosou-2024-backend-challenge-application/actions/workflows/build-and-deploy.v1.yml)
+[![CI/CD Pipeline](https://github.com/albertosou/albertosou-2024-backend-challenge-application/actions/workflows/build-and-deploy.v1.yml/badge.svg)](https://github.com/albertosou/albertosou-2024-backend-challenge-application/actions/workflows/build-and-deploy.v1.yml) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/albertosouza) [![GitHub](https://img.shields.io/badge/github-%23121011.svg?logo=github&logoColor=white)](https://github.com/albertosou)
 
 ## Descrição do Projeto
 
