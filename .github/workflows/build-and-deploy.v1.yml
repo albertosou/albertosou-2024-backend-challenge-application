@@ -16,11 +16,11 @@ on:
   push:
     branches: 
       - master
-      - ${{ env.AWS_BRANCH_PROD }}
+      - ${{ vars.AWS_BRANCH_PROD }}
   pull_request:
     branches: 
       - master
-      - ${{ env.AWS_BRANCH_PROD }}
+      - ${{ vars.AWS_BRANCH_PROD }}
 
 jobs:
   build-and-deploy:
