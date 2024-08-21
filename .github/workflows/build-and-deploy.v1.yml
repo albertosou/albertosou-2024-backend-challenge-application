@@ -39,6 +39,12 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-nuget-
 
+    - name: Install Docker Compose
+      run: |
+        sudo apt-get update || { echo "Falha atualizar pacotes"; exit 1; }
+        sudo apt-get install -y docker || { echo "Falha instalar docker"; exit 1; }
+        sudo apt-get install -y docker-compose || { echo "Falha instalar docker-compose"; exit 1; }
+
     - name: 3. Restore dependencies
       run: |
         dotnet restore src/AlbertoSouza.AppBackendChallenge || { echo "Falha ao restaurar dependências"; exit 1; }
