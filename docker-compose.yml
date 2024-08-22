@@ -3,7 +3,7 @@ services:
     build:
       context: ./src/AlbertoSouza.AppBackendChallenge
       dockerfile: Dockerfile
-    image: albertosou-2024/backend-challenge-application:latest  # Defina o nome da imagem aqui
+    image: albertosou-2024/backend-challenge-application:latest
     ports:
       - "80:80"
     environment:
