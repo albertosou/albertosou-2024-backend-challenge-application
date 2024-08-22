@@ -21,12 +21,19 @@ Este projeto consiste na construção de um micro serviço em .NET que realiza u
 - **Infrastructure:** Implementações de infraestrutura, como acesso a banco de dados e serviços externos.
 - **Testes:** Projetos dedicados a testes unitários e de integração.
 
-## Variáveis de Ambiente
-As seguintes variáveis de ambiente precisam ser definidas:
-- `AWS_USER_ID=000000000000`
-- `AWS_XRAY_REGION=aa-bbbb-1`
-- `AWS_XRAY_ACCESS_KEY_ID=22222222222222222222`
-- `AWS_XRAY_SECRET_ACCESS_KEY=1111111111111111111111111111111111111111`
+## Configuração do Pipeline
+
+Para utilizar este pipeline, é necessário configurar os seguintes secrets no seu repositório:
+
+- `AWS_ACCESS_KEY_ID`: Chave de acesso da sua conta AWS.
+- `AWS_SECRET_ACCESS_KEY`: Chave secreta da sua conta AWS.
+- `AWS_REGION`: Região da sua conta AWS.
+- `AWS_XRAY_ACCESS_KEY_ID`: Chave de acesso do AWS X-Ray.
+- `AWS_XRAY_SECRET_ACCESS_KEY`: Chave secreta do AWS X-Ray.
+- `AWS_XRAY_REGION`: Região do AWS X-Ray.
+- `AWS_USER_ID`: ID do usuário da sua conta AWS.
+
+Certifique-se de que esses secrets estejam configurados corretamente para que o pipeline possa ser executado com sucesso.
 
 # CI/CD Pipeline
 
@@ -36,18 +43,16 @@ Este repositório contém um pipeline CI/CD que automatiza o processo de build, 
 
 1. **Checkout do Código**: Faz checkout do código-fonte do repositório.
 2. **Configuração do Ambiente .NET**: Configura o ambiente para a versão do .NET especificada.
-3. **Restauração de Dependências**: Restaura as dependências do projeto.
-4. **Compilação da Aplicação**: Compila a aplicação.
-5. **Execução de Testes**: Executa os testes automatizados.
-6. **Construção de Imagens Docker**: Constrói as imagens Docker necessárias.
-7. **Login no Amazon ECR**: Faz login no Amazon Elastic Container Registry.
-8. **Push das Imagens Docker**: Faz push das imagens Docker para o ECR.
-9. **Deploy no AWS ECS**: Atualiza o serviço do ECS para usar a nova imagem.
-10. **Notificações**: Notifica o sucesso ou a falha do pipeline.
-
-## Como Usar o Pipeline 
-
-Para usar este pipeline, certifique-se de que as chaves de acesso e outras configurações necessárias estão definidas como segredos no repositório.
+3. **Instalação de Dependências**: Instalação do docker.
+4. **Restauração de Dependências**: Restaura as dependências do projeto.
+5. **Compilação da Aplicação**: Compila a aplicação.
+6. **Execução de Testes**: Executa os testes automatizados.
+7. **Construção de Imagens Docker**: Constrói as imagens Docker necessárias.
+8. **Login no Amazon ECR**: Faz login no Amazon Elastic Container Registry.
+9. **Push das Imagens Docker**: Faz push das imagens Docker para o ECR.
+10. **Deploy no AWS ECS**: Atualiza o serviço do ECS para usar a nova imagem.
+11. **Notificação Sucesso**: Notifica o sucesso do pipeline.
+12. **Notificação Falha**: Notifica a falha do pipeline.
 
 # Massa de teste 
 

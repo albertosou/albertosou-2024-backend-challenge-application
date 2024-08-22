@@ -9,7 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Setup", "01 - Setup", 
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 		docker-compose.yml = docker-compose.yml
-		.github\workflows\build-and-deploy.v1.yml = .github\workflows\build-and-deploy.v1.yml
 		Dockerfile = Dockerfile
 		otel-collector-config.yaml = otel-collector-config.yaml
 		readme.md = readme.md
@@ -29,6 +28,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{1CAB0349-1
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlbertoSouza.AppBackendChallenge.Test", "test\AlbertoSouza.AppBackendChallenge.Test\AlbertoSouza.AppBackendChallenge.Test.csproj", "{336E2104-4876-43A5-AFED-32BD0B64B068}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflow", "workflow", "{198C5C49-26BD-45DF-BFEE-D6124F4DA15D}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build-and-deploy.v1.yml = .github\workflows\build-and-deploy.v1.yml
+		.github\workflows\readme.md = .github\workflows\readme.md
+		.github\workflows\test-workflow.yml = .github\workflows\test-workflow.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,6 +58,7 @@ Global
 		{23C39F36-72D6-4AB5-90FB-8DB1ED711C11} = {A7574E6C-FB4B-48E3-952F-F72CE0141165}
 		{1CAB0349-18CD-4407-A1C0-9F638A5F8B14} = {76FE33B9-60EB-4779-9905-B381DC1B8202}
 		{336E2104-4876-43A5-AFED-32BD0B64B068} = {260CF5F3-9D7A-49F5-B30F-7243975DD7AE}
+		{198C5C49-26BD-45DF-BFEE-D6124F4DA15D} = {76FE33B9-60EB-4779-9905-B381DC1B8202}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E7690160-A22E-44BE-B710-B03C146E102E}
