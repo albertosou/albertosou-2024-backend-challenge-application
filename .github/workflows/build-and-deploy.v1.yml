@@ -64,6 +64,7 @@ jobs:
     - name: 6. Build Docker images
       run: |
         docker-compose build || { echo "Falha ao construir as imagens Docker"; exit 1; }
+        docker images
 
     - name: 7. Login to Amazon ECR
       env:
