@@ -1,8 +1,9 @@
 services:
   api:
     build:
-        context: ./src/AlbertoSouza.AppBackendChallenge
-        dockerfile: Dockerfile
+      context: ./src/AlbertoSouza.AppBackendChallenge
+      dockerfile: Dockerfile
+    image: albertosou-2024/backend-challenge-application:latest  # Defina o nome da imagem aqui
     ports:
       - "80:80"
     environment:
