@@ -26,7 +26,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches: 
-      - master
+      - deploy/aws-ecr
   pull_request:
     branches: 
       - master

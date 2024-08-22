@@ -1,9 +1,13 @@
 FROM mcr.microsoft.com/dotnet/sdk:7.0-alpine AS build-env
 WORKDIR /app
 
-COPY ./src/AlbertoSouza.AppBackendChallenge/ ./
-RUN dotnet restore
-RUN dotnet publish -c Release -o out
+COPY ./ ./
+
+WORKDIR /app/test/AlbertoSouza.AppBackendChallenge.Test/
+RUN dotnet restore | dotnet test
+
+WORKDIR /app/src/AlbertoSouza.AppBackendChallenge/
+RUN dotnet publish -c Release -o /app/out
 
 FROM mcr.microsoft.com/dotnet/aspnet:7.0-alpine
 WORKDIR /app

@@ -1,7 +1,7 @@
 services:
   api:
     build:
-      context: ./src/AlbertoSouza.AppBackendChallenge
+      context: .
       dockerfile: Dockerfile
     image: backend-challenge-application:latest
     ports:
